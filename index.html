@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaia Zou | Marketing Portfolio</title>
+  <meta name="description" content="Marketing portfolio of Kaia Zou, showcasing brand marketing, market research, content strategy, and business project experience." />
+
+  <style>
+    :root {
+      --bg: #fffaf6;
+      --card: #ffffff;
+      --text: #262323;
+      --muted: #6f6864;
+      --accent: #b86b5e;
+      --accent-dark: #7f3f38;
+      --accent-light: #f4ddd6;
+      --border: #eadbd3;
+      --shadow: 0 18px 45px rgba(90, 55, 45, 0.12);
+      --radius: 26px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #ffece5 0%, transparent 30%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 250, 246, 0.78);
+      border-bottom: 1px solid rgba(234, 219, 211, 0.7);
+    }
+
+    nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.25rem;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid var(--accent);
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 12px 26px rgba(184, 107, 94, 0.24);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      color: var(--accent-dark);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 88px 0 66px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      font-size: 0.86rem;
+      font-weight: 750;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5.6rem);
+      line-height: 0.94;
+      letter-spacing: -0.08em;
+      margin-bottom: 24px;
+    }
+
+    h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.12rem;
+      max-width: 670px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--border);
+      border-radius: 36px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: var(--accent-light);
+      border-radius: 50%;
+      right: -60px;
+      top: -70px;
+      z-index: 0;
+    }
+
+    .profile-block {
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar {
+      width: 112px;
+      height: 112px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, #b86b5e, #efc2b4);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 2.6rem;
+      font-weight: 850;
+      margin-bottom: 24px;
+      box-shadow: 0 16px 35px rgba(184, 107, 94, 0.28);
+    }
+
+    .profile-block h2 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .profile-block p {
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .mini-stat {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 15px;
+      background: rgba(255,255,255,0.72);
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-size: 1.35rem;
+      color: var(--accent-dark);
+    }
+
+    .mini-stat span {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    section {
+      padding: 68px 0;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      letter-spacing: -0.055em;
+      line-height: 1;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 12px 28px rgba(75, 45, 37, 0.06);
+      transition: 0.22s ease;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      background: var(--accent-light);
+      border-radius: 999px;
+      padding: 6px 10px;
+    }
+
+    .project-card h3 {
+      font-size: 1.28rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+    }
+
+    .project-card ul {
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 20px;
+    }
+
+    .project-card li {
+      margin-bottom: 8px;
+    }
+
+    .project-link {
+      font-weight: 800;
+      color: var(--accent-dark);
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 12px 28px rgba(75, 45, 37, 0.06);
+    }
+
+    .panel h3 {
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .panel p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .skill {
+      border: 1px solid var(--border);
+      background: #fffaf6;
+      color: var(--accent-dark);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      padding: 18px;
+      border-radius: 20px;
+      background: #fffaf6;
+      border: 1px solid var(--border);
+    }
+
+    .timeline-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .contact {
+      background: linear-gradient(135deg, #3a2522, #8d5148);
+      color: white;
+      border-radius: 38px;
+      padding: 46px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .contact h2 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+      margin-bottom: 18px;
+    }
+
+    .contact p {
+      color: rgba(255,255,255,0.78);
+      max-width: 640px;
+    }
+
+    .contact-box {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 28px;
+      padding: 24px;
+    }
+
+    .contact-box a {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+      font-weight: 700;
+    }
+
+    .contact-box a:last-child {
+      border-bottom: 0;
+    }
+
+    footer {
+      padding: 38px 0 60px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 880px) {
+      .hero,
+      .about-wrap,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        display: block;
+      }
+
+      .section-title p {
+        margin-top: 14px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#top" class="logo">Kaia<span>.</span></a>
+        <div class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Marketing · Strategy · Cross-cultural Communication</div>
+        <h1>Turning <em>insights</em> into stories, and stories into brand value.</h1>
+        <p>
+          Hi, I’m Kaia Zou — a business master’s student at NUS with a background in Japanese studies, market research, brand storytelling, and cross-cultural communication. I’m looking for marketing, PR, brand, and communications internship opportunities where I can combine consumer insight, structured thinking, and creative execution.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View My Work</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="profile-block">
+          <div class="avatar">KZ</div>
+          <h2>Kaia Zou</h2>
+          <p>Marketing / Brand / PR Intern Candidate based in Singapore.</p>
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <strong>3+</strong>
+              <span>Languages: Chinese, English, Japanese</span>
+            </div>
+            <div class="mini-stat">
+              <strong>NUS</strong>
+              <span>Business School · MSc student</span>
+            </div>
+            <div class="mini-stat">
+              <strong>B2B</strong>
+              <span>Market research & GTM project</span>
+            </div>
+            <div class="mini-stat">
+              <strong>4</strong>
+              <span>Short-form videos adopted by official platforms</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <h2>Selected Projects</h2>
+        <p>Case studies that show how I approach marketing problems: from research and insights to storytelling, positioning, and execution.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="project-card">
+          <div>
+            <div class="tag-row">
+              <span class="tag">Market Research</span>
+              <span class="tag">GTM Strategy</span>
+              <span class="tag">B2B</span>
+            </div>
+            <h3>Zero-Error Systems: Go-to-Market Strategy for Space-grade GPU Module</h3>
+            <p>
+              Led a business project for a deep-tech company developing radiation-tolerant GPU modules for Earth Observation satellites.
+            </p>
+            <ul>
+              <li>Conducted competitive landscape analysis in an emerging technology market.</li>
+              <li>Reframed competition through technology substitutes: CPU, FPGA, and GPU-based architectures.</li>
+              <li>Built value proposition around reliability, onboard AI processing, and cost efficiency.</li>
+            </ul>
+          </div>
+          <a class="project-link" href="#contact">Request case study →</a>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <div class="tag-row">
+              <span class="tag">Beauty</span>
+              <span class="tag">Consumer Insight</span>
+              <span class="tag">Campaign</span>
+            </div>
+            <h3>L’Oréal Case Study: Product Insight & Campaign Analysis</h3>
+            <p>
+              Developed a short marketing analysis for a beauty product case, focusing on consumer behavior, product positioning, and campaign logic.
+            </p>
+            <ul>
+              <li>Translated product information into clear consumer-facing insights.</li>
+              <li>Used simple data analysis and visualization to support recommendations.</li>
+              <li>Connected product features with audience needs and marketing messages.</li>
+            </ul>
+          </div>
+          <a class="project-link" href="#contact">Request case study →</a>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <div class="tag-row">
+              <span class="tag">Content</span>
+              <span class="tag">Cross-cultural</span>
+              <span class="tag">Social Media</span>
+            </div>
+            <h3>Cultural Content Localization: Short-form Video Project</h3>
+            <p>
+              Supported the localization of Chinese cultural content into formats more relatable to international audiences.
+            </p>
+            <ul>
+              <li>Delivered 4 short-form videos adopted by official platforms.</li>
+              <li>Collaborated with production and directing teams on content execution.</li>
+              <li>Adapted cultural storytelling for digital-first audiences.</li>
+            </ul>
+          </div>
+          <a class="project-link" href="#contact">View details →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>A cross-cultural communicator moving from language and culture into marketing, brand, and business strategy.</p>
+      </div>
+
+      <div class="about-wrap">
+        <div class="panel">
+          <h3>My positioning</h3>
+          <p>
+            My strength lies in connecting people, markets, and messages. With a background in Japanese language and culture, exchange experience in Japan, and business training at NUS, I am comfortable working across cultures and translating complex ideas into clear communication.
+          </p>
+          <p>
+            I am especially interested in consumer-facing industries such as beauty, luxury, retail, hospitality, lifestyle, and entertainment, where branding and emotional connection matter.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Experience Snapshot</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>NUS Business School</strong>
+              <span>MSc student focusing on strategy, innovation, market analysis, and business communication.</span>
+            </div>
+            <div class="timeline-item">
+              <strong>Jilin University · Japanese Studies</strong>
+              <span>Built strong language, research, writing, and cross-cultural communication foundations.</span>
+            </div>
+            <div class="timeline-item">
+              <strong>Hiroshima University Exchange</strong>
+              <span>Developed intercultural sensitivity, adaptability, and communication confidence.</span>
+            </div>
+            <div class="timeline-item">
+              <strong>Project & Internship Experience</strong>
+              <span>Worked on market research, event coordination, content writing, recruitment process optimization, and stakeholder communication.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title">
+        <h2>Skills & Tools</h2>
+        <p>Marketing skills I am actively building and applying through projects, internships, and coursework.</p>
+      </div>
+
+      <div class="panel">
+        <div class="skill-cloud">
+          <span class="skill">Market Research</span>
+          <span class="skill">Consumer Insight</span>
+          <span class="skill">Brand Positioning</span>
+          <span class="skill">Campaign Analysis</span>
+          <span class="skill">PR Writing</span>
+          <span class="skill">Content Localization</span>
+          <span class="skill">Competitive Benchmarking</span>
+          <span class="skill">Go-to-Market Strategy</span>
+          <span class="skill">Presentation Design</span>
+          <span class="skill">Stakeholder Communication</span>
+          <span class="skill">Canva</span>
+          <span class="skill">Excel</span>
+          <span class="skill">PowerPoint</span>
+          <span class="skill">Chinese</span>
+          <span class="skill">English</span>
+          <span class="skill">Japanese</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <div>
+          <h2>Let’s connect.</h2>
+          <p>
+            I’m currently seeking marketing, PR, brand, communications, and consumer insight internship opportunities in Singapore. I would love to discuss how my cross-cultural background and project experience can support your team.
+          </p>
+        </div>
+        <div class="contact-box">
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+          <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a>
+          <a href="https://github.com/your-github-username" target="_blank">GitHub</a>
+          <a href="#projects">Portfolio Projects</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Kaia Zou. Designed and built as a personal marketing portfolio.
+    </div>
+  </footer>
+</body>
+</html>
